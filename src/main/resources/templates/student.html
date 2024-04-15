@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+
+ 
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+ 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+ 
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+ 
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+ 
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+ 
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+ 
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+ 
+     
+    </style>
+ 
+   
+    
+  </head>
+  <body>
+    
+ 
+
+      <div class="table-responsive small">
+        <table class="table table-striped table-sm">
+          <thead>
+				<th>名前</th>
+				<th>学籍番号</th>
+				<th>入学年度</th>
+				<th>クラス</th>
+				<th>在学中</th>
+				<th>変更</th>
+			</thead>
+			<tbody>
+				<tr class="align-middle" th:each="item2, stat : ${list}" th:object="${item2}">
+				
+					<td th:text="*{NAME}"></td>
+					<td th:text="*{NO}"></td>
+					<td th:text="*{ENT_YEAR}"></td>
+					<td th:text="*{CLASS_NUM}"></td>
+					<td th:text="*{IS_ATTEND}"></td>
+					<!--script>
+      				var attend = list.IS_ATTEND;
+      				
+      				if (attend = true){
+					// id名pass_failのHTMタグL内に「合格です」というテキストを入力する
+        				<td th:text="〇"></td>
+        			}
+        			else {
+						<td th:text="×"></td>	
+					}
+					
+   					</script-->
+					
+					
+					<td>		
+		 			<a class="btn btn-warning" th:href="@{/detail/{ID}(ID=*{ID})}">変更</a>
+					</td>
+					
+					
+				</tr>
+			</tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js" integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous"></script><script src="dashboard.js"></script></body>
+</html>
+ 
