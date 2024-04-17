@@ -40,7 +40,12 @@ public class StudentService {
 	
 	public void save(@NonNull Student students) {
 		//初期値の設定
-        students.setIS_ATTEND(true);
+        students.setIsAttend(true);
+		this.repository.save(students);
+	}
+	
+	public void softdelete(@NonNull Student students) {
+        students.setIsAttend(false);
 		this.repository.save(students);
 	}
  
@@ -70,5 +75,11 @@ public class StudentService {
         // データベースを更新する
         repository.save(editstudent);
     }
+    
+    public List<Student> searchStudents(Integer entYear ,String classNum) {
+       return repository.findByEntYearAndClassNum(entYear,classNum);
+    }
+
+	
 	
 }

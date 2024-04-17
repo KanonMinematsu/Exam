@@ -165,9 +165,9 @@
     
 
 <div class="row mt-3">
-<label for="ENT_YEAR" class="form-label">入学年度</label>
+<label for="entYear" class="form-label">入学年度</label>
 <div class="col-4">
-<select class="form-control" id="ENT_YEAR" name="ENT_YEAR" th:field="*{ENT_YEAR}" th:classappend="${#fields.hasErrors('ENT_YEAR')} ? 'is-invalid' : 'is-valid'">
+<select class="form-control" id="entYear" name="entYear" th:field="*{entYear}" th:classappend="${#fields.hasErrors('entYear')} ? 'is-invalid' : 'is-valid'">
 <option value="">選択してください</option>
 <!-- プルダウンメニューに2014年から2034年までのオプションを追加 -->
 <!-- JavaScriptで自動生成 -->
@@ -179,7 +179,7 @@
 </div>
 <script>
    // プルダウンメニューのオプションを自動生成
-   var selectElement = document.getElementById('ENT_YEAR');
+   var selectElement = document.getElementById('entYear');
    var currentYear = new Date().getFullYear();
    for (var year = 2014; year <= 2034; year++) {
        var option = document.createElement('option');
@@ -206,9 +206,7 @@
                   Your username is required.
                 </div>
               </div>
-            
-            
-
+				
 
            
 
@@ -222,9 +220,9 @@
             </div-->
             
             <div class="row mt-3">
-			<label for="CLASS_NUM" class="form-label">クラス</label>
+			<label for="classNum" class="form-label">クラス</label>
 			<div class="col-4">
-			<select class="form-control" id="CLASS_NUM" name="CLASS_NUM" th:field="*{CLASS_NUM}" th:classappend="${#fields.hasErrors('CLASS_NUM')} ? 'is-invalid' : 'is-valid'">
+			<select class="form-control" id="classNum" name="classNum" th:field="*{classNum}" th:classappend="${#fields.hasErrors('classNum')} ? 'is-invalid' : 'is-valid'">
 			<option value="">選択してください</option>
 			<option value="101">101</option>
  			<option value="102">102</option>

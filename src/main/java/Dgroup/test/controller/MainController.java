@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -32,6 +33,18 @@ public class MainController {
 		return "student";
 	}
 	
+	@PostMapping("/user/")
+    public String getFilteredStudents(
+            @RequestParam("entYear") Integer entYear,
+            @RequestParam("classNum") String classNum,
+            //@RequestParam("IS_ATTEND") Boolean IS_ATTEND,
+            Model model) {
+		model.addAttribute("list", studentService.searchStudents(entYear,classNum));
+		//controllerのline31のlistと一緒
+		//listはtemplateでもともと指定してるものに合わせるline114
+        return "student";
+    }
+	
 	
 	@GetMapping("/add/")
 	public ModelAndView add(Student students, ModelAndView model) {
@@ -53,12 +66,15 @@ public class MainController {
 		return "redirect:/user/";
 	}
 	
+	
 	//@GetMapping("/detail/{id}")
 	//public ModelAndView detail(@PathVariable(name = "id") Long id, Student students, ModelAndView model) {
 		//model.addObject("list",this.studentService.get(id));
 		//model.setViewName("update");
 		//return model;
 	//}
+	
+	
 	
 	// 編集画面を表示する
 	@GetMapping("/detail/{id}")
@@ -86,5 +102,8 @@ public class MainController {
         // 本の一覧画面にリダイレクト
         return "redirect:/user/";
     }
+    
+    
+    
 	
 }
