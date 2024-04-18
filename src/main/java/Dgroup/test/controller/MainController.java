@@ -30,6 +30,7 @@ public class MainController {
 	public String student(Model model) {
 	model.addAttribute("list",this.studentService.getstudentList());
 		// TODO: model.addAttributeに一覧取得結果を追加
+	
 		return "student";
 	}
 	
