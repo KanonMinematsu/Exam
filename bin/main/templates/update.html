@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>情報を編集</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+    <div class="container">
+        <h1>更新</h1>
+        <form th:action="@{/detail/{ID}(ID=*{ID})}" th:object="${student}" method="POST">
+            <input type="hidden" th:field="*{ID}" th:value="*{ID}" />
+             <div class="mb-3">
+                <p th:if="${#fields.hasErrors('entYear')" th:errors="*{entYear}" class="text-danger">Name Error</p>
+                <label for="entYear" class="form-label">入学年度</label>
+                <input id="entYear" class="form-control" type="text" th:field="*{entYear}" readonly>
+            </div>
+             <div class="mb-3">
+                <p th:if="${#fields.hasErrors('NO')}" th:errors="*{NO}" class="text-danger">Name Error</p>
+                <label for="NO" class="form-label">学籍番号</label>
+                <input id="NO" class="form-control" type="text" th:field="*{NO}" readonly>
+            </div>
+            <div class="mb-3">
+                <p th:if="${#fields.hasErrors('NAME')}" th:errors="*{NAME}" class="text-danger">Name Error</p>
+                <label for="NAME" class="form-label">氏名</label>
+                <input id="NAME" class="form-control" type="text" th:field="*{NAME}">
+            </div>
+            <!--div class="mb-3">
+                <p th:if="${#fields.hasErrors('CLASS_NUM')}" th:errors="*{CLASS_NUM}" class="text-danger">Price Error</p>
+                <label for="CLASS_NUM" class="form-label">クラス</label>
+                <input id="CLASS_NUM" class="form-control" type="text" th:field="*{CLASS_NUM}">
+            </div-->
+            
+            <div class="mb-3">
+			<label for="classNum" class="form-label">クラス</label>
+			<select class="form-control" id="classNum" name="classNum" th:field="*{classNum}" th:classappend="${#fields.hasErrors('classNum')} ? 'is-invalid' : 'is-valid'">
+			<option value="">選択してください</option>
+			<option value="101">101</option>
+ 			<option value="102">102</option>
+ 			<option value="103">103</option>
+ 			<option value="104">104</option>
+			</select>
+			
+            <div class="mb-3">
+                <p th:if="${#fields.hasErrors('isAttend')}" th:errors="*{isAttend}" class="text-danger">Price Error</p>
+                <label for="isAttend" class="form-label">在学中</label>
+                <input id="isAttend" class="form-control" type="checkbox" th:field="*{isAttend}">
+            </div>
+            <input type="submit"  value="更新">
+        </form>
+      
+    </div>
+</body>
+</html>
